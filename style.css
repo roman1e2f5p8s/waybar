@@ -1,0 +1,482 @@
+/* Gruvbox colors for the dark mode */
+/* https://github.com/morhetz/gruvbox */
+@define-color DARK_0         #1d2021;
+@define-color DARK_1         #282828;
+@define-color DARK_2         #32302f;
+@define-color DARK_3         #3c3836;
+@define-color DARK_4         #504945;
+@define-color DARK_5         #665c54;
+@define-color LIGHT_0        #f9f5d7;
+@define-color LIGHT_1        #fbf1c7;
+@define-color LIGHT_2        #f2e5bc;
+@define-color LIGHT_3        #ebdbb2;
+@define-color LIGHT_4        #d5c4a1;
+@define-color LIGHT_5        #bdae93;
+@define-color RED            #cc241d;
+@define-color GREEN          #98971a;
+@define-color YELLOW         #d79921;
+@define-color BLUE           #458588;
+@define-color PURPLE         #b16286;
+@define-color AQUA           #689d6a;
+@define-color ORANGE         #d65d0e;
+@define-color GRAY           #928374;
+@define-color BRIGHT_RED     #fb4934;
+@define-color BRIGHT_GREEN   #b8bb26;
+@define-color BRIGHT_YELLOW  #fabd2f;
+@define-color BRIGHT_BLUE    #83a598;
+@define-color BRIGHT_PURPLE  #d3869b;
+@define-color BRIGHT_AQUA    #8ec07c;
+@define-color BRIGHT_ORANGE  #fe8019;
+@define-color BRIGHT_GRAY    #a89984;
+@define-color BACKGROUND     @DARK_1;
+@define-color FOREGROUND     @LIGHT_3;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: RobotoMono Nerd Font Mono;
+    font-size: 10px;
+}
+
+window#waybar {
+    color: @FOREGROUND;
+    background-color: @BACKGROUND;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+*/
+
+#custom-arch,
+#mode,
+#idle_inhibitor,
+#tray,
+#privacy,
+#disk,
+#disk#2,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#language,
+#bluetooth,
+#wireplumber,
+#network,
+#battery,
+#power-profiles-daemon,
+#clock,
+#custom-power {
+    margin: 0 2px;
+    padding: 0 6px;
+    color: @FOREGROUND;
+}
+
+/* ========================================================= */
+
+/* Arch Linux icon styling */
+#custom-arch {
+    color: @BLUE;
+    border-bottom: 2px solid @BLUE;
+}
+
+/* ========================================================= */
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px @transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+#workspaces button {
+    color: @FOREGROUND;
+    background-color: @DARK_2;
+    border: 1px solid @DARK_0;
+    border-radius: 4px;
+    padding: 0 3px;
+}
+
+#workspaces button:hover {
+    background: @DARK_0;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    color: @LIGHT_2;
+    background-color: @DARK_3;
+    border: 1.5px solid @GREEN;
+    border-radius: 4px;
+}
+
+#workspaces button.urgent {
+    background-color: @RED;
+}
+
+#workspaces {
+    color: @LIGHT_3;
+    background-color: transparent;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#window {
+    margin: 0 4px;
+}
+
+/* ========================================================= */
+
+/* Sway binding mode styling */
+#mode {
+    color: @FOREGROUND;
+    background-color: @ORANGE;
+    border: 1px solid @DARK_0;
+    border-radius: 4px;
+}
+
+/* ========================================================= */
+
+/* Idle inhibitor styling */
+#idle_inhibitor {
+    color: @BRIGHT_GRAY;
+}
+#idle_inhibitor.activated {
+    color: @BLUE;
+}
+
+/* ========================================================= */
+
+/* Tray styling */
+#tray {
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+
+/* ========================================================= */
+
+/* Privacy styling */
+#privacy {
+    padding: 0 0px;
+}
+#privacy-item {
+    padding: 0 6px;
+}
+#privacy-item.screenshare {
+    color: @FOREGROUND;
+    background-color: @ORANGE;
+    border: 1px solid @DARK_0;
+    border-radius: 4px;
+}
+#privacy-item.audio-in {
+    color: @FOREGROUND;
+    background-color: @ORANGE;
+    border: 1px solid @DARK_0;
+    border-radius: 4px;
+}
+#privacy-item.audio-out {
+    color: @FOREGROUND;
+    background-color: @ORANGE;
+    border: 1px solid @DARK_0;
+    border-radius: 4px;
+}
+
+/* ========================================================= */
+
+
+/* Disk usage styling */
+#disk {
+    color: @FOREGROUND;
+    border-bottom: 2px solid @FOREGROUND;
+}
+#disk.critical {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#disk.high {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#disk.medium {
+    color: @BRIGHT_YELLOW;
+    border-bottom: 2px solid @BRIGHT_YELLOW;
+}
+#disk.low {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+
+/* ========================================================= */
+
+/* CPU styling */
+#cpu.critical {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#cpu.high {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#cpu.medium {
+    color: @BRIGHT_YELLOW;
+    border-bottom: 2px solid @BRIGHT_YELLOW;
+}
+#cpu.low {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+#cpu.idle {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+#cpu {
+    color: @BRIGHT_BLUE;
+    border-bottom: 2px solid @BRIGHT_BLUE;
+}
+
+/* ========================================================= */
+
+/* Memory styling */
+#memory.critical {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#memory.high {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#memory.medium {
+    color: @BRIGHT_YELLOW;
+    border-bottom: 2px solid @BRIGHT_YELLOW;
+}
+#memory.low {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+#memory.idle {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+#memory {
+    color: @BRIGHT_BLUE;
+    border-bottom: 2px solid @BRIGHT_BLUE;
+}
+
+/* ========================================================= */
+
+/* Temperature styling */
+#temperature.critical {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#temperature.warning {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#temperature {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+
+/* ========================================================= */
+
+/* Backlight styling */
+#backlight {
+    color: @LIGHT_3;
+    border-bottom: 2px solid @LIGHT_3;
+}
+
+/* ========================================================= */
+
+/* Language styling */
+#language {
+    color: @BRIGHT_PURPLE;
+    border-bottom: 2px solid @BRIGHT_PURPLE;
+}
+
+/* ========================================================= */
+
+/* Bluetooth styling */
+#bluetooth {
+    color: @BRIGHT_YELLOW;
+    border-bottom: 2px solid @BRIGHT_YELLOW;
+}
+#bluetooth.on {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+#bluetooth.connected {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+#bluetooth.connected-battery {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+#bluetooth.off {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#bluetooth.disabled {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#bluetooth.no-controller {
+    color: @BRIGHT_GRAY;
+    border-bottom: 2px solid @BRIGHT_GRAY;
+}
+
+/* ========================================================= */
+
+/* Wireplumber styling */
+#wireplumber {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+#wireplumber.muted {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+
+/* ========================================================= */
+
+/* Network styling */
+#network {
+    color: @BRIGHT_BLUE;
+    border-bottom: 2px solid @BRIGHT_BLUE;
+}
+#network.disconnected {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+
+/* ========================================================= */
+
+/* Battery styling */
+#battery {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+#battery.good {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+#battery.medium:not(.charging) {
+    color: @BRIGHT_YELLOW;
+    border-bottom: 2px solid @BRIGHT_YELLOW;
+}
+#battery.warning:not(.charging) {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#battery.critical:not(.charging) {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+#battery.charging, #battery.plugged {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+
+/* ========================================================= */
+
+/* Power profiles styling */
+#power-profiles-daemon.performance {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#power-profiles-daemon.balanced {
+    color: @BLUE;
+    border-bottom: 2px solid @BLUE;
+}
+#power-profiles-daemon.power-saver {
+    color: @AQUA;
+    border-bottom: 2px solid @AQUA;
+}
+
+/* ========================================================= */
+
+/* Clock styling */
+#clock {
+    color: @FOREGROUND;
+    border-bottom: 2px solid @FOREGROUND;
+}
+
+/* ========================================================= */
+
+/* Power styling */
+#custom-power {
+    color: @BRIGHT_PURPLE;
+    border-bottom: 2px solid @BRIGHT_PURPLE;
+}
+
+/* ========================================================= */
+
+/* Menu styling */
+menu {
+    color: @FOREGROUND;
+    background: @BACKGROUND;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+menuitem {
+    border-radius: 10px;
+}
+menuitem:hover {
+    background: @GREEN;
+}
+
+/* ========================================================= */
+
+/* Tooltip styling */
+tooltip label {
+    color: @FOREGROUND;
+    background: @BACKGROUND;
+}
+tooltip {
+    color: @FOREGROUND;
+    background: @BACKGROUND;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+/* ========================================================= */
+
+label:focus {
+    background-color: @BACKGROUND;
+}

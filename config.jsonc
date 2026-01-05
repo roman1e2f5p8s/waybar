@@ -1,0 +1,260 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 10,
+     // Gaps between modules in px
+    "spacing": 0,
+    // Order of the modules
+    "modules-left": [
+        "custom/arch",
+        "sway/workspaces",
+        "sway/mode",
+        "idle_inhibitor",
+        "tray",
+        "privacy",
+    ],
+    "modules-center": [
+        "disk",
+        "disk#2",
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "sway/language",
+    ],
+    "modules-right": [
+        "bluetooth",
+        "wireplumber",
+        "wireplumber#source",
+        "network",
+        "battery",
+        "power-profiles-daemon",
+        "clock",
+        "custom/power",
+    ],
+    // Modules at the left
+    "custom/arch": {
+        "format": "<span size=\"xx-large\">󰣇</span>",
+        "tooltip": false
+    },
+    "sway/mode": {
+        "format": "{}"
+    },
+    "idle_inhibitor": {
+        "format": "<span size=\"xx-large\">{icon}</span>",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true,
+        "tooltip-format-activated": "Idle inhibitor: {status}",
+        "tooltip-format-deactivated": "Idle inhibitor: {status}",
+    },
+    "tray": {
+        "icon-size": 14,
+    },
+    "privacy": {
+	      "icon-size": 14,
+	      "icon-spacing": 2,
+	      "transition-duration": 250,
+	      "modules": [
+	      	{
+	      		"type": "screenshare",
+	      		"tooltip": true,
+	      		"tooltip-icon-size": 18
+	      	},
+	      	{
+	      		"type": "audio-out",
+	      		"tooltip": true,
+	      		"tooltip-icon-size": 18
+	      	},
+	      	{
+	      		"type": "audio-in",
+	      		"tooltip": true,
+	      		"tooltip-icon-size": 18
+	      	}
+	      ],
+	      "ignore-monitor": true,
+	      "ignore": [
+	      	{
+	      		"type": "audio-in",
+	      		"name": "cava"
+	      	},
+	      	{
+	      		"type": "screenshare",
+	      		"name": "obs"
+	      	}
+	      ]
+    },
+    // Modules at the middle
+    "disk": {
+        "interval": 30,
+        "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {percentage_used}%",
+        "path": "/",
+        "states": {
+          "critical": 90,
+          "high": 70,
+          "medium": 50,
+          "low": 30,
+        },
+        "tooltip": true,
+        "tooltip-format": "{path}: {used}/{total}"
+    },
+    "disk#2": {
+        "interval": 30,
+        "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {percentage_used}%",
+        "path": "/home/roman",
+        "states": {
+          "critical": 90,
+          "high": 70,
+          "medium": 50,
+          "low": 30,
+        },
+        "tooltip": true,
+        "tooltip-format": "{path}: {used}/{total}"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "<span size=\"xx-large\" rise=\"-3pt\">{icon}</span> {usage}%",
+        "format-icons": [""],
+        "states": {
+          "critical": 85,
+          "high": 70,
+          "medium": 40,
+          "low": 10,
+          "idle": 5,
+        },
+        "tooltip": true
+    },
+    "memory": {
+        "interval": 2,
+        "format": "<span size=\"x-large\" rise=\"-2pt\">{icon}</span> {percentage}%",
+        "format-icons": [""],
+        "states": {
+          "critical": 85,
+          "high": 70,
+          "medium": 40,
+          "low": 10,
+          "idle": 5,
+        },
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f}/{total:0.1f}GiB | {swapUsed:0.1f}/{swapTotal:0.1f}GiB"
+    },
+    "temperature": {
+        "interval": 2,
+        "format": "<span size=\"large\" rise=\"-1pt\">{icon}</span> {temperatureC}°C",
+        "format-icons": [""],
+        "critical-threshold": 85,
+        "warning-threshold": 60,
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        // "format-critical": "{temperatureC}°C {icon}",
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "<span size=\"x-large\" rise=\"-1pt\">{icon}</span> {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+    "sway/language": {
+        "format": "<span size=\"large\" rise=\"0pt\">{short}</span>",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "tooltip": false
+    },
+    // Modules at the right
+    "bluetooth": {
+        "format": "<span size=\"x-large\"></span>",
+        "format-on": "<span size=\"x-large\"></span>",
+        "format-connected": "<span size=\"xx-large\" rise=\"-2pt\">󰂱</span> {device_alias}",
+        "format-connected-battery": "<span size=\"xx-large\" rise=\"-2pt\">󰂱</span> {device_alias} {device_battery_percentage}%",
+        "format-off": "<span size=\"x-large\">󰂲</span>",
+        "format-disabled": "<span size=\"x-large\">󰂲</span>",
+        "format-no-controller": "<span size=\"x-large\">󰂲</span>",
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager",
+        "tooltip": true,
+        "tooltip-format": "{controller_alias}\t{controller_address}\t{status}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\t{status}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "wireplumber": {
+        "format": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span> {volume}%",
+        "format-muted": "<span size=\"xx-large\" rise=\"-2pt\"></span> {volume}%",
+        "format-icons": ["", "", ""],
+        "max-volume": 100.0,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "helvum",
+        "tooltip": true,
+        "tooltip-format": "{node_name}: {volume}%",
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "<span size=\"xx-large\" rise=\"-2pt\"></span> {volume}%",
+        "format-muted": "<span size=\"xx-large\" rise=\"-2pt\"></span> {volume}%",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "tooltip": true,
+        "tooltip-format": "{source_desc}: {source_volume}%",
+    },
+    "network": {
+        "interval": 30,
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span> {essid} ({signalStrength}%) {bandwidthTotalBits}",
+        "format-alt": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span> ({signalStrength}%) <span size=\"xx-large\" rise=\"-2pt\"></span> {bandwidthUpBits} <span size=\"xx-large\" rise=\"-2pt\"></span> {bandwidthDownBits}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        // "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "<span size=\"xx-large\" rise=\"-2pt\">󰤮</span> Disconnected",
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "tooltip": true,
+        "tooltip-format": "{ifname}: {essid} ({signalStrength}%) {frequency}GHz",
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "good": 80,
+            "medium": 50,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span size=\"x-large\" rise=\"-1.5pt\">{icon}</span> {capacity}%",
+        "format-charging": "<span size=\"x-large\" rise=\"-1.5pt\">󰂄</span> {capacity}%",
+        "format-plugged": "<span size=\"xx-large\" rise=\"-2pt\"></span> {capacity}%",
+        "format-alt": "<span size=\"x-large\" rise=\"-1.5pt\">{icon}</span> {time}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{time}, P={power}W, C={cycles}, H={health}%"
+    },
+    "power-profiles-daemon": {
+        "format": "<span size=\"xx-large\">{icon}</span>",
+        "format-icons": {
+          "default": "󰗑",
+          "performance": "",
+          "balanced": "󰗑",
+          "power-saver": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    },
+    "clock": {
+        "interval": 1,
+        "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {:%H:%M:%S}",
+        "format-alt": "<span size=\"xx-large\" rise=\"-3pt\"></span> {:%Y-%m-%d}",
+        "timezone": "Europe/Berlin",
+        "tooltip-format": "{calendar}",
+    },
+    "custom/power": {
+        "format": "<span size=\"xx-large\" rise=\"-3pt\">{icon}</span>",
+        "format-icons" : ["⏻"],
+		    "tooltip": true,
+        "tooltip-format": "Power menu",
+		    "menu": "on-click",
+		    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		    "menu-actions": {
+		    	"shutdown": "systemctl poweroff",
+		    	"reboot": "systemctl reboot",
+		    	"suspend": "systemctl suspend",
+		    	"hibernate": "systemctl hibernate"
+		    }
+    }
+}
