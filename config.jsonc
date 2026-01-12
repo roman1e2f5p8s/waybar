@@ -104,7 +104,7 @@
     "disk#2": {
         "interval": 30,
         "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {percentage_used}%",
-        "path": "/home/roman",
+        "path": "../",
         "states": {
           "critical": 90,
           "high": 70,
