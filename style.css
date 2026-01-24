@@ -69,6 +69,7 @@ window#waybar.chromium {
 #idle_inhibitor,
 #tray,
 #privacy,
+#custom-updates,
 #disk,
 #disk#2,
 #cpu,
@@ -218,6 +219,17 @@ button:hover {
 
 /* ========================================================= */
 
+/* Updates styling */
+#custom-updates.has-updates {
+    color: @BRIGHT_YELLOW;
+    border-bottom: 2px solid @BRIGHT_YELLOW;
+}
+#custom-updates.updated {
+    color: @BRIGHT_AQUA;
+    border-bottom: 2px solid @BRIGHT_AQUA;
+}
+
+/* ========================================================= */
 
 /* Disk usage styling */
 #disk {

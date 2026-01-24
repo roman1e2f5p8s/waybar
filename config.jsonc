@@ -15,6 +15,7 @@
         "privacy",
     ],
     "modules-center": [
+        "custom/updates",
         "disk",
         "disk#2",
         "cpu",
@@ -88,6 +89,16 @@
 	      ]
     },
     // Modules at the middle
+    "custom/updates": {
+        "format": "{icon} {0}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "<span size=\"xx-large\" rise=\"-3pt\">󱍷</span>",
+            "updated": "<span size=\"xx-large\" rise=\"-3pt\">󰂪</span>"
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 -output --tooltip-align-columns --color-semver-updates fb4934,b8bb26,83a598,d3869b,ebdbb2 --arrow-style "
+    },
     "disk": {
         "interval": 30,
         "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {percentage_used}%",
