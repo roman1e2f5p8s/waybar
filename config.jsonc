@@ -229,7 +229,8 @@
     "tooltip-format": "{source_desc}: {source_volume}%"
   },
   "network": {
-    "interval": 30,
+    "interval": 5,
+    "interface": "wlan0",
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span> {essid} ({signalStrength}%) {bandwidthTotalBits}",
     "format-alt": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span> ({signalStrength}%) <span size=\"xx-large\" rise=\"-2pt\"></span> {bandwidthUpBits} <span size=\"xx-large\" rise=\"-2pt\"></span> {bandwidthDownBits}",
