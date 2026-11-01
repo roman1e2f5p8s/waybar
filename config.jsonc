@@ -33,6 +33,7 @@
     "battery",
     "power-profiles-daemon",
     "clock",
+    "clock#2",
     "custom/power"
   ],
   // Modules at the left
@@ -301,8 +302,13 @@
   },
   "clock": {
     "interval": 1,
+    "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {:%Y-%m-%d}",
+    "timezone": "Europe/Berlin",
+    "tooltip-format": "{calendar}"
+  },
+  "clock#2": {
+    "interval": 1,
     "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {:%H:%M:%S}",
-    "format-alt": "<span size=\"xx-large\" rise=\"-3pt\"></span> {:%Y-%m-%d}",
     "timezone": "Europe/Berlin",
     "tooltip-format": "{calendar}"
   },

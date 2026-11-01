@@ -84,6 +84,7 @@ window#waybar.chromium {
 #battery,
 #power-profiles-daemon,
 #clock,
+#clock#2,
 #custom-power {
     margin: 0 2px;
     padding: 0 6px;
