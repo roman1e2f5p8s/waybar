@@ -2,7 +2,9 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 10,
+  // Every screen except the projector
+  "output": ["!Acer Technologies ACER H5382BD JNQ110015900", "*"],
+  "height": 12,
   // Gaps between modules in px
   "spacing": 0,
   // Order of the modules
