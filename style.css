@@ -352,7 +352,7 @@ button:hover {
 #language {
     color: @BRIGHT_PURPLE;
     border-bottom: 2px solid @BRIGHT_PURPLE;
-    margin-right: 404px;
+    /* margin-right: 404px; */
 }
 
 /* ========================================================= */
