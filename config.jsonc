@@ -18,6 +18,7 @@
     "custom/updates",
     "disk",
     "disk#2",
+    "disk#3",
     "cpu",
     "memory",
     "temperature",
@@ -118,6 +119,19 @@
     "interval": 30,
     "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {percentage_used}%",
     "path": "../",
+    "states": {
+      "critical": 90,
+      "high": 70,
+      "medium": 50,
+      "low": 30
+    },
+    "tooltip": true,
+    "tooltip-format": "{path}: {used}/{total}"
+  },
+  "disk#3": {
+    "interval": 30,
+    "format": "<span size=\"xx-large\" rise=\"-3pt\"></span> {percentage_used}%",
+    "path": "/data",
     "states": {
       "critical": 90,
       "high": 70,
