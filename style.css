@@ -76,6 +76,7 @@ window#waybar.chromium {
 #memory,
 #temperature,
 #backlight,
+#custom-dark-mode,
 #language,
 #bluetooth,
 #wireplumber,
@@ -331,6 +332,16 @@ button:hover {
 #backlight {
     color: @LIGHT_3;
     border-bottom: 2px solid @LIGHT_3;
+}
+
+/* System light/dark mode toggle */
+#custom-dark-mode.dark {
+    color: @BLUE;
+    border-bottom: 2px solid @BLUE;
+}
+#custom-dark-mode.light {
+    color: @YELLOW;
+    border-bottom: 2px solid @YELLOW;
 }
 
 /* ========================================================= */

@@ -22,6 +22,7 @@
     "memory",
     "temperature",
     "backlight",
+    "custom/dark-mode",
     "sway/language"
   ],
   "modules-right": [
@@ -183,6 +184,18 @@
       ""
     ],
     "tooltip": false
+  },
+  // System light/dark mode: click to switch (browsers and GTK apps follow it)
+  "custom/dark-mode": {
+    "format": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span>",
+    "format-icons": {
+      "dark": "󰖔",
+      "light": "󰖨"
+    },
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/dark-mode.sh",
+    "on-click": "$HOME/.config/waybar/scripts/dark-mode.sh toggle",
+    "tooltip": true
   },
   "sway/language": {
     "format": "<span size=\"large\" rise=\"0pt\">{short}</span>",
