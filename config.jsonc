@@ -266,7 +266,7 @@
   // Syncthing (~/.claude shared with the other machine): green synced, orange syncing,
   // red offline or error. Click opens the Syncthing web page.
   "custom/syncthing": {
-    "format": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span>",
+    "format": "<span size=\"x-large\" rise=\"-2pt\">{icon}</span>",
     "format-icons": {
       "synced": "󰓦",
       "syncing": "󰓦",
