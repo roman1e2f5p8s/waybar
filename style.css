@@ -81,6 +81,7 @@ window#waybar.chromium {
 #bluetooth,
 #wireplumber,
 #network,
+#custom-syncthing,
 #battery,
 #power-profiles-daemon,
 #clock,
@@ -406,6 +407,23 @@ button:hover {
     border-bottom: 2px solid @BRIGHT_BLUE;
 }
 #network.disconnected {
+    color: @BRIGHT_RED;
+    border-bottom: 2px solid @BRIGHT_RED;
+}
+
+/* ========================================================= */
+
+/* Syncthing styling */
+#custom-syncthing.synced {
+    color: @BRIGHT_GREEN;
+    border-bottom: 2px solid @BRIGHT_GREEN;
+}
+#custom-syncthing.syncing {
+    color: @BRIGHT_ORANGE;
+    border-bottom: 2px solid @BRIGHT_ORANGE;
+}
+#custom-syncthing.offline,
+#custom-syncthing.error {
     color: @BRIGHT_RED;
     border-bottom: 2px solid @BRIGHT_RED;
 }

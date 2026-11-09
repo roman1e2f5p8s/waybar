@@ -11,6 +11,7 @@
     "sway/workspaces",
     "sway/mode",
     "idle_inhibitor",
+    "custom/syncthing",
     "tray",
     "privacy"
   ],
@@ -261,6 +262,21 @@
     // "format-alt": "{ifname}: {ipaddr}/{cidr}"
     "tooltip": true,
     "tooltip-format": "{ifname}: {essid} ({signalStrength}%) {frequency}GHz"
+  },
+  // Syncthing (~/.claude shared with the other machine): green synced, orange syncing,
+  // red offline or error. Click opens the Syncthing web page.
+  "custom/syncthing": {
+    "format": "<span size=\"xx-large\" rise=\"-2pt\">{icon}</span>",
+    "format-icons": {
+      "synced": "󰓦",
+      "syncing": "󰓦",
+      "offline": "󰓨",
+      "error": "󰓧"
+    },
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/syncthing.py",
+    "on-click": "xdg-open http://127.0.0.1:8384",
+    "tooltip": true
   },
   "battery": {
     "interval": 60,
